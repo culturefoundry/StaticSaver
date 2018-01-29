@@ -1,13 +1,14 @@
 --------------------
-StaticSaver
+StaticElController
 --------------------
-Version: 1.1.2-pl
-Author: Vitaly Kireev <kireevvit@gmail.com>
+Version: 1.2.0-pl
+Author: Culture Foundry <andrew@culturefoundry.com>
 --------------------
 
-StaticSaver is a plugin for MODx Revolution that automatically sets up the name of file and media 
-resource of element (template, chunk, snippet, TV or plugin) when wanting 
-to make this element be static.
+StaticElController is a plugin for MODx Revolution that sets the path of the file and media 
+resource of element (template, chunk, snippet, or plugin) when the 
+"isStatic" checkbox is checked, and locks code editor if the element 
+is static.
 
 Feel free to suggest ideas/improvements/bugs on GitHub:
-http://github.com/argnist/StaticSaver/issues
+http://github.com/culturefoundry/static_el_controller/issues
