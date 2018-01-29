@@ -81,6 +81,15 @@ $settings['include_category']->fromArray(array(
     'area' => 'file',
 ),'',true,true);
 
+$settings['include_id']= $modx->newObject('modSystemSetting');
+$settings['include_id']->fromArray(array(
+    'key' => 'static_el_controller.include_id',
+    'value' => '0',
+    'xtype' => 'combo-boolean',
+    'namespace' => 'static_el_controller',
+    'area' => 'file',
+),'',true,true);
+
 $settings['base_element_path']= $modx->newObject('modSystemSetting');
 $settings['base_element_path']->fromArray(array(
     'key' => 'static_el_controller.base_element_path',
