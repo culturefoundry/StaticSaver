@@ -2,7 +2,7 @@
 /**
  * Build Schema script
  *
- * @package staticsaver
+ * @package static_el_controller
  * @subpackage build
  */
 $mtime = microtime();
@@ -12,8 +12,8 @@ $tstart = $mtime;
 set_time_limit(0);
 
 /* define package name */
-define('PKG_NAME','StaticSaver');
-define('PKG_NAME_LOWER',strtolower(PKG_NAME));
+define('PKG_NAME','StaticElController');
+define('PKG_NAME_LOWER', 'static_el_controller');
 
 /* define sources */
 $root = dirname(dirname(__FILE__)).'/';
