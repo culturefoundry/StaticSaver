@@ -1,4 +1,4 @@
-var StaticSaver = function(config) {
+var StaticElController = function(config) {
     Ext.onReady(function(){
     	
         var nameInput = Ext.get(config.nameInput);
@@ -11,14 +11,14 @@ var StaticSaver = function(config) {
             return;
         }
 
-        if (MODx.config['staticsaver.static_default'] == 1) {
+        if (MODx.config['static_el_controller.static_default'] == 1) {
             isStatic.setValue(true);
         }
 
         var setValue = function(placeholder, value) {
             var new_value = '';
-            if (MODx.config['staticsaver.static_file_extension'] !== '') {
-                new_value = value + '.' + MODx.config['staticsaver.static_file_extension'];
+            if (MODx.config['static_el_controller.static_file_extension'] !== '') {
+                new_value = value + '.' + MODx.config['static_el_controller.static_file_extension'];
             }
             else if (MODx.config[config.fileExt] !== '') {
                 new_value = value + '.' + MODx.config[config.fileExt];
@@ -29,11 +29,11 @@ var StaticSaver = function(config) {
         var getRequest = function() {
             var catval = categoryInput.getValue();
             Ext.Ajax.request({
-                url:  MODx.config['assets_url'] + 'components/staticsaver/connector.php',
+                url:  MODx.config['assets_url'] + 'components/static_el_controller/connector.php',
                 success: function(e){
                     var response = JSON.parse(e.responseText);
                     var value = response.result;
-                    if (MODx.config['staticsaver.enable_rewrite'] || value == '1') {
+                    if (MODx.config['static_el_controller.enable_rewrite'] || value == '1') {
                         setValue(staticFile, nameInput.getAttribute('value'));
                     }
                     var category;
@@ -42,7 +42,7 @@ var StaticSaver = function(config) {
                         category = response.category;
                         category_folder = category.toLowerCase().replace(/ /g,"_")+"/";
                     }
-                    if (MODx.config['staticsaver.include_category'] == "1") {
+                    if (MODx.config['static_el_controller.include_category'] == "1") {
                         setValue(staticFile, category_folder+nameInput.getAttribute('value'));
                     }
                 },
