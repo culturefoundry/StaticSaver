@@ -12,9 +12,10 @@ $plugins[0] = $modx->newObject('modPlugin');
 $plugins[0]->fromArray(array(
     'id' => 1,
     'name' => 'StaticElController',
-    'description' => 'Automatically set up the name of file and media 
-            resource of element (template, chunk, snippet, TV or plugin) when wanting 
-            to make this element be static.',
+    'description' => 'Sets the path of the file and media 
+    resource of element (template, chunk, snippet, or plugin) when the
+    "isStatic" checkbox is checked, and locks code editor if the element
+    is static.',
     'plugincode' => getSnippetContent($sources['source_core'] . '/elements/plugins/StaticElController.php'),
         ), '', true, true);
 
