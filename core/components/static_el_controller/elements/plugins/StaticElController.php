@@ -19,73 +19,39 @@
 *
 * @package static_el_controller
 */
+
 switch ($modx->event->name)
 {
     case 'OnTempFormRender':
-        $config = array(
-            'type' => 'template',
-            'nameInput' => 'modx-template-templatename',
-            'staticFile' => 'modx-template-static-file',
-            'sourceInput' => 'modx-template-static-source',
-            'categoryInput' => 'modx-template-category',
-            'isStatic' => 'modx-template-static',
-            'source' => $modx->getOption('static_el_controller.static_template_media_source'),
-            'fileExt' => 'static_el_controller.static_template_file_extension',
-        );
+        $type = 'template';
+        $name_selector = 'templatename';
         break;
     case 'OnChunkFormRender':
-        $config = array(
-            'type' => 'chunk',
-            'nameInput' => 'modx-chunk-name',
-            'staticFile' => 'modx-chunk-static-file',
-            'sourceInput' => 'modx-chunk-static-source',
-            'categoryInput' => 'modx-chunk-category',
-            'isStatic' => 'modx-chunk-static',
-            'source' => $modx->getOption('static_el_controller.static_chunk_media_source'),
-            'fileExt' => 'static_el_controller.static_chunk_file_extension',
-        );
+        $type = 'chunk';
         break;
     case 'OnSnipFormRender':
-        $config = array(
-            'type' => 'snippet',
-            'nameInput' => 'modx-snippet-name',
-            'staticFile' => 'modx-snippet-static-file',
-            'sourceInput' => 'modx-snippet-static-source',
-            'categoryInput' => 'modx-snippet-category',
-            'isStatic' => 'modx-snippet-static',
-            'source' => $modx->getOption('static_el_controller.static_snippet_media_source'),
-            'fileExt' => 'static_el_controller.static_snippet_file_extension',
-        );
+        $type = 'snippet';
         break;
     case 'OnPluginFormRender':
-        $config = array(
-            'type' => 'plugin',
-            'nameInput' => 'modx-plugin-name',
-            'staticFile' => 'modx-plugin-static-file',
-            'sourceInput' => 'modx-plugin-static-source',
-            'categoryInput' => 'modx-plugin-category',
-            'isStatic' => 'modx-plugin-static',
-            'source' => $modx->getOption('static_el_controller.static_plugin_media_source'),
-            'fileExt' => 'static_el_controller.static_plugin_file_extension',
-        );
+        $type = 'plugin';
         break;
-    case 'OnTVFormRender':
-        $config = array(
-            'type' => 'tv',
-            'nameInput' => 'modx-tv-name',
-            'staticFile' => 'modx-tv-static-file',
-            'sourceInput' => 'modx-tv-static-source',
-            'categoryInput' => 'modx-tv-category',
-            'isStatic' => 'modx-tv-static',
-            'source' => $modx->getOption('static_el_controller.static_tv_media_source'),
-            'fileExt' => 'static_el_controller.static_tv_file_extension',
-        );
-        break;
-    default: $config = null;
+    default: $type = null;
         break;
 }
 
-if ($config)
+$config = array(
+    'type' => $type,
+    'nameInput' => 'modx-' . $type . '-' . (isset($name_selector) ? $name_selector : 'name'),
+    'staticFile' => 'modx-' . $type . '-static-file',
+    'sourceInput' => 'modx-' . $type . '-static-source',
+    'categoryInput' => 'modx-' . $type . '-category',
+    'isStatic' => 'modx-' . $type . '-static',
+    'source' => $modx->getOption('static_el_controller.static_element_source'),
+    'fileExt' => 'static_el_controller.static_' . $type . '_file_extension',
+    'basePath' => $modx->getOption('static_el_controller.base_element_path'),
+);
+
+if (isset($type))
 {
     $json_config = json_encode($config);
     $modx->regClientStartupScript('<script src="' . $modx->getOption('assets_url') . 'components/static_el_controller/js/static_el_controller.js"></script>');
