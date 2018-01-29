@@ -72,15 +72,4 @@ else
 }
 unset($events);
 
-/*
-  $properties = array();
-  if (is_array($properties)) {
-  $modx->log(xPDO::LOG_LEVEL_INFO,'Set '.count($properties).' plugin properties.'); flush();
-  $plugins[0]->setProperties($properties);
-  } else {
-  $modx->log(xPDO::LOG_LEVEL_ERROR,'Could not set plugin properties.');
-  }
-  unset($properties);
- */
-
 return $plugins;

@@ -57,16 +57,6 @@ $properties = array(
 		'value' => false,
 		'lexicon' => 'static_el_controller:properties',
 	),
-/*
-	array(
-		'name' => '',
-		'desc' => 'prop_static_el_controller.',
-		'type' => 'textfield',
-		'options' => '',
-		'value' => '',
-		'lexicon' => 'static_el_controller:properties',
-	),
-	*/
 );
 
 return $properties;
