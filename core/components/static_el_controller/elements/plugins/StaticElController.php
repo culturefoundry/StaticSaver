@@ -2,7 +2,7 @@
 /**
 * StaticElController plugin
 *
-* Copyright 2012 by Vitaly Kireev <kireevvit@gmail.com> (mods by Culture Foundry)
+* Copyright 2018 by Culture Foundry <andrew@culturefoundry.com>
 *
 * StaticElController is free software; you can redistribute it and/or modify it under the
 * terms of the GNU General Public License as published by the Free Software
@@ -25,6 +25,7 @@ switch ($modx->event->name)
     case 'OnTempFormRender':
         $type = 'template';
         $name_selector = 'templatename';
+		$content_input = 'content';
         break;
     case 'OnChunkFormRender':
         $type = 'chunk';
@@ -34,6 +35,7 @@ switch ($modx->event->name)
         break;
     case 'OnPluginFormRender':
         $type = 'plugin';
+		$content_input = 'plugincode';
         break;
     default: $type = null;
         break;
@@ -45,9 +47,10 @@ $config = array(
     'staticFile' => 'modx-' . $type . '-static-file',
     'sourceInput' => 'modx-' . $type . '-static-source',
     'categoryInput' => 'modx-' . $type . '-category',
+    'contentInput' => 'x-form-el-modx-' . $type . '-' . (isset($content_input) ? $content_input : 'snippet'),
     'isStatic' => 'modx-' . $type . '-static',
-    'source' => $modx->getOption('static_el_controller.static_element_source'),
-    'fileExt' => 'static_el_controller.static_' . $type . '_file_extension',
+    'source' => $modx->getOption('static_el_controller.element_media_source'),
+    'fileExt' => 'static_el_controller.' . $type . '_file_extension',
     'basePath' => $modx->getOption('static_el_controller.base_element_path'),
 );
 
@@ -56,4 +59,5 @@ if (isset($type))
     $json_config = json_encode($config);
     $modx->regClientStartupScript('<script src="' . $modx->getOption('assets_url') . 'components/static_el_controller/js/static_el_controller.js"></script>');
     $modx->regClientStartupScript('<script>StaticElController = new StaticElController(' . $json_config . ');</script>', true);
+	$modx->regClientCSS($modx->getOption('assets_url') . 'components/static_el_controller/css/static_el_controller.css');
 }
