@@ -1,8 +1,16 @@
-Changelog for StaticSaver.
+Changelog for StaticElController.
+
+StaticElController 1.2.0-pl
+==============
+- Rename to StaticElController.
+- Lock code editor when element is marked static
+- Clean up plugin code 
+- Allow including ID in static element path
+- All elements use same base path and source
 
 StaticSaver 1.1.3-pl
 ==============
--  Fixed a bug with category handling
+- Fixed a bug with category handling
 
 StaticSaver 1.1.2-pl
 ==============

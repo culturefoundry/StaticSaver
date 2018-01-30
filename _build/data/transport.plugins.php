@@ -3,7 +3,7 @@
 /**
  * Add plugins to build
  * 
- * @package staticsaver
+ * @package static_el_controller
  * @subpackage build
  */
 $plugins = array();
@@ -11,11 +11,12 @@ $plugins = array();
 $plugins[0] = $modx->newObject('modPlugin');
 $plugins[0]->fromArray(array(
     'id' => 1,
-    'name' => 'StaticSaver',
-    'description' => 'Automatically set up the name of file and media 
-            resource of element (template, chunk, snippet, TV or plugin) when wanting 
-            to make this element be static.',
-    'plugincode' => getSnippetContent($sources['source_core'] . '/elements/plugins/StaticSaver.php'),
+    'name' => 'StaticElController',
+    'description' => 'Sets the path of the file and media 
+    resource of element (template, chunk, snippet, or plugin) when the
+    "isStatic" checkbox is checked, and locks code editor if the element
+    is static.',
+    'plugincode' => getSnippetContent($sources['source_core'] . '/elements/plugins/StaticElController.php'),
         ), '', true, true);
 
 $events = array();
@@ -63,24 +64,13 @@ $events[4]->fromArray(array(
 if (is_array($events) && !empty($events))
 {
     $plugins[0]->addMany($events);
-    $modx->log(xPDO::LOG_LEVEL_INFO, 'Packaged in ' . count($events) . ' plugin events for StaticSaver.');
+    $modx->log(xPDO::LOG_LEVEL_INFO, 'Packaged in ' . count($events) . ' plugin events for StaticElController.');
     flush();
 }
 else
 {
-    $modx->log(xPDO::LOG_LEVEL_ERROR, 'Could not find plugin events for StaticSaver!');
+    $modx->log(xPDO::LOG_LEVEL_ERROR, 'Could not find plugin events for StaticElController!');
 }
 unset($events);
-
-/*
-  $properties = array();
-  if (is_array($properties)) {
-  $modx->log(xPDO::LOG_LEVEL_INFO,'Set '.count($properties).' plugin properties.'); flush();
-  $plugins[0]->setProperties($properties);
-  } else {
-  $modx->log(xPDO::LOG_LEVEL_ERROR,'Could not set plugin properties.');
-  }
-  unset($properties);
- */
 
 return $plugins;

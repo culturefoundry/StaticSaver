@@ -2,138 +2,100 @@
 /**
  * Loads system settings into build
  *
- * @package staticsaver
+ * @package static_el_controller
  * @subpackage build
  */
 $settings = array();
 
-$settings['static_enable_rewrite']= $modx->newObject('modSystemSetting');
-$settings['static_enable_rewrite']->fromArray(array(
-    'key' => 'staticsaver.enable_rewrite',
+$settings['enable_rewrite']= $modx->newObject('modSystemSetting');
+$settings['enable_rewrite']->fromArray(array(
+    'key' => 'static_el_controller.enable_rewrite',
     'value' => '0',
     'xtype' => 'combo-boolean',
-    'namespace' => 'staticsaver',
+    'namespace' => 'static_el_controller',
     'area' => 'file',
 ),'',true,true);
 
-$settings['static_file_extension']= $modx->newObject('modSystemSetting');
-$settings['static_file_extension']->fromArray(array(
-    'key' => 'staticsaver.static_file_extension',
-    'value' => '',
-    'xtype' => 'textfield',
-    'namespace' => 'staticsaver',
-    'area' => 'file',
-),'',true,true);
-
-$settings['static_chunk_file_extension']= $modx->newObject('modSystemSetting');
-$settings['static_chunk_file_extension']->fromArray(array(
-	'key' => 'staticsaver.static_chunk_file_extension',
-	'value' => 'php',
+$settings['chunk_file_extension']= $modx->newObject('modSystemSetting');
+$settings['chunk_file_extension']->fromArray(array(
+	'key' => 'static_el_controller.chunk_file_extension',
+	'value' => 'html',
 	'xtype' => 'textfield',
-	'namespace' => 'staticsaver',
+	'namespace' => 'static_el_controller',
 	'area' => 'file',
 ),'',true,true);
 
-$settings['static_snippet_file_extension']= $modx->newObject('modSystemSetting');
-$settings['static_snippet_file_extension']->fromArray(array(
-    'key' => 'staticsaver.static_snippet_file_extension',
+$settings['snippet_file_extension']= $modx->newObject('modSystemSetting');
+$settings['snippet_file_extension']->fromArray(array(
+    'key' => 'static_el_controller.snippet_file_extension',
     'value' => 'php',
     'xtype' => 'textfield',
-    'namespace' => 'staticsaver',
+    'namespace' => 'static_el_controller',
     'area' => 'file',
 ),'',true,true);
 
 
-$settings['static_plugin_file_extension']= $modx->newObject('modSystemSetting');
-$settings['static_plugin_file_extension']->fromArray(array(
-    'key' => 'staticsaver.static_plugin_file_extension',
+$settings['plugin_file_extension']= $modx->newObject('modSystemSetting');
+$settings['plugin_file_extension']->fromArray(array(
+    'key' => 'static_el_controller.plugin_file_extension',
     'value' => 'php',
     'xtype' => 'textfield',
-    'namespace' => 'staticsaver',
+    'namespace' => 'static_el_controller',
     'area' => 'file',
 ),'',true,true);
 
 
-$settings['static_template_file_extension']= $modx->newObject('modSystemSetting');
-$settings['static_template_file_extension']->fromArray(array(
-    'key' => 'staticsaver.static_template_file_extension',
-    'value' => 'php',
+$settings['template_file_extension']= $modx->newObject('modSystemSetting');
+$settings['template_file_extension']->fromArray(array(
+    'key' => 'static_el_controller.template_file_extension',
+    'value' => 'html',
     'xtype' => 'textfield',
-    'namespace' => 'staticsaver',
+    'namespace' => 'static_el_controller',
     'area' => 'file',
 ),'',true,true);
 
-
-$settings['static_tv_file_extension']= $modx->newObject('modSystemSetting');
-$settings['static_tv_file_extension']->fromArray(array(
-    'key' => 'staticsaver.static_tv_file_extension',
-    'value' => 'php',
-    'xtype' => 'textfield',
-    'namespace' => 'staticsaver',
-    'area' => 'file',
-),'',true,true);
-
-
-$settings['static_plugin_media_source']= $modx->newObject('modSystemSetting');
-$settings['static_plugin_media_source']->fromArray(array(
-	'key' => 'staticsaver.static_plugin_media_source',
+$settings['element_media_source']= $modx->newObject('modSystemSetting');
+$settings['element_media_source']->fromArray(array(
+	'key' => 'static_el_controller.element_media_source',
 	'value' => '1',
 	'xtype' => 'modx-combo-source',
-	'namespace' => 'staticsaver',
+	'namespace' => 'static_el_controller',
 	'area' => 'file',
 ),'',true,true);
 
-$settings['static_snippet_media_source']= $modx->newObject('modSystemSetting');
-$settings['static_snippet_media_source']->fromArray(array(
-	'key' => 'staticsaver.static_snippet_media_source',
-	'value' => '1',
-	'xtype' => 'modx-combo-source',
-	'namespace' => 'staticsaver',
-	'area' => 'file',
-),'',true,true);
-
-$settings['static_template_media_source']= $modx->newObject('modSystemSetting');
-$settings['static_template_media_source']->fromArray(array(
-	'key' => 'staticsaver.static_template_media_source',
-	'value' => '1',
-	'xtype' => 'modx-combo-source',
-	'namespace' => 'staticsaver',
-	'area' => 'file',
-),'',true,true);
-
-$settings['static_tv_media_source']= $modx->newObject('modSystemSetting');
-$settings['static_tv_media_source']->fromArray(array(
-	'key' => 'staticsaver.static_tv_media_source',
-	'value' => '1',
-	'xtype' => 'modx-combo-source',
-	'namespace' => 'staticsaver',
-	'area' => 'file',
-),'',true,true);
-
-$settings['static_chunk_media_source']= $modx->newObject('modSystemSetting');
-$settings['static_chunk_media_source']->fromArray(array(
-	'key' => 'staticsaver.static_chunk_media_source',
-	'value' => '1',
-	'xtype' => 'modx-combo-source',
-	'namespace' => 'staticsaver',
-	'area' => 'file',
-),'',true,true);
-
-$settings['static_default']= $modx->newObject('modSystemSetting');
-$settings['static_default']->fromArray(array(
-    'key' => 'staticsaver.static_default',
+$settings['static_by_default']= $modx->newObject('modSystemSetting');
+$settings['static_by_default']->fromArray(array(
+    'key' => 'static_el_controller.static_by_default',
     'value' => '0',
     'xtype' => 'combo-boolean',
-    'namespace' => 'staticsaver',
+    'namespace' => 'static_el_controller',
     'area' => 'file',
 ),'',true,true);
 
 $settings['include_category']= $modx->newObject('modSystemSetting');
 $settings['include_category']->fromArray(array(
-    'key' => 'staticsaver.include_category',
+    'key' => 'static_el_controller.include_category',
     'value' => '0',
     'xtype' => 'combo-boolean',
-    'namespace' => 'staticsaver',
+    'namespace' => 'static_el_controller',
+    'area' => 'file',
+),'',true,true);
+
+$settings['include_id']= $modx->newObject('modSystemSetting');
+$settings['include_id']->fromArray(array(
+    'key' => 'static_el_controller.include_id',
+    'value' => '1',
+    'xtype' => 'combo-boolean',
+    'namespace' => 'static_el_controller',
+    'area' => 'file',
+),'',true,true);
+
+$settings['base_element_path']= $modx->newObject('modSystemSetting');
+$settings['base_element_path']->fromArray(array(
+    'key' => 'static_el_controller.base_element_path',
+    'value' => 'static-elements/',
+    'xtype' => 'textfield',
+    'namespace' => 'static_el_controller',
     'area' => 'file',
 ),'',true,true);
 

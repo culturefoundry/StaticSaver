@@ -1,9 +1,9 @@
 <?php
 
 /**
- * StaticSaver build script
+ * StaticElController build script
  *
- * @package staticsaver 
+ * @package static_el_controller 
  * @subpackage build
  */
 $mtime = microtime();
@@ -13,9 +13,9 @@ $tstart = $mtime;
 set_time_limit(0);
 
 /* define package */
-define('PKG_NAME', 'StaticSaver');
-define('PKG_NAME_LOWER', strtolower(PKG_NAME));
-define('PKG_VERSION', '1.1.3');
+define('PKG_NAME', 'StaticElController');
+define('PKG_NAME_LOWER', 'static_el_controller');
+define('PKG_VERSION', '1.2.0');
 define('PKG_RELEASE', 'pl');
 
 /* define sources */
